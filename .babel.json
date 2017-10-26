@@ -1,0 +1,449 @@
+{
+  "{\"filename\":\"/app/src/app.js\",\"env\":{},\"retainLines\":false,\"highlightCode\":true,\"suppressDeprecationMessages\":false,\"presets\":[],\"plugins\":[[[],{\"loose\":false,\"spec\":false}],[[],null],[[],null],[[],{\"spec\":false}],[[],null],[[],{\"loose\":false}],[[],null],[[],null],[[],null],[[],{\"loose\":false}],[[],{\"loose\":false}],[[],null],[[],null],[[],null],[[],{\"loose\":false}],[[],null],[[],{\"loose\":false}],[[],null],[[],null],[[],{\"loose\":false}],[[],{\"async\":false,\"asyncGenerators\":false}]],\"ignore\":[],\"code\":true,\"metadata\":true,\"ast\":true,\"comments\":true,\"compact\":\"auto\",\"minified\":false,\"sourceRoot\":\"/app/src\",\"babelrc\":true,\"sourceType\":\"module\",\"moduleIds\":false,\"passPerPreset\":false,\"parserOpts\":false,\"generatorOpts\":false}:6.26.0": {
+    "metadata": {
+      "usedHelpers": [
+        "interopRequireDefault"
+      ],
+      "marked": [],
+      "modules": {
+        "imports": [
+          {
+            "source": "express",
+            "imported": [
+              "default"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "default",
+                "local": "express"
+              }
+            ]
+          },
+          {
+            "source": "mongoose",
+            "imported": [
+              "default"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "default",
+                "local": "mongoose"
+              }
+            ]
+          },
+          {
+            "source": "path",
+            "imported": [
+              "default"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "default",
+                "local": "path"
+              }
+            ]
+          },
+          {
+            "source": "./api/search",
+            "imported": [
+              "searchApi"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "searchApi",
+                "local": "searchApi"
+              }
+            ]
+          }
+        ],
+        "exports": {
+          "exported": [
+            "app"
+          ],
+          "specifiers": [
+            {
+              "kind": "local",
+              "local": "app",
+              "exported": "app"
+            }
+          ]
+        }
+      }
+    },
+    "options": {
+      "filename": "/app/src/app.js",
+      "filenameRelative": "/app/src/app.js",
+      "env": {},
+      "retainLines": false,
+      "highlightCode": true,
+      "suppressDeprecationMessages": false,
+      "presets": [],
+      "plugins": [
+        [
+          [],
+          {
+            "loose": false,
+            "spec": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "spec": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "async": false,
+            "asyncGenerators": false
+          }
+        ]
+      ],
+      "ignore": [],
+      "code": true,
+      "metadata": true,
+      "ast": false,
+      "comments": true,
+      "compact": "auto",
+      "minified": false,
+      "sourceMaps": "both",
+      "sourceMapTarget": "app.js",
+      "sourceFileName": "app.js",
+      "sourceRoot": "/app/src",
+      "babelrc": false,
+      "sourceType": "module",
+      "moduleRoot": "/app/src",
+      "moduleIds": false,
+      "passPerPreset": false,
+      "parserOpts": false,
+      "generatorOpts": false,
+      "basename": "app"
+    },
+    "ignored": false,
+    "code": "'use strict';\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.app = undefined;\n\nvar _express = require('express');\n\nvar _express2 = _interopRequireDefault(_express);\n\nvar _mongoose = require('mongoose');\n\nvar _mongoose2 = _interopRequireDefault(_mongoose);\n\nvar _path = require('path');\n\nvar _path2 = _interopRequireDefault(_path);\n\nvar _search = require('./api/search');\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar mongodb = process.env.MLAB_URI;\n\nmongooseInit(mongodb);\n\nvar app = exports.app = (0, _express2.default)(); // Create express app\n\n\n/* Mongoose initialization function */\nfunction mongooseInit(mongodb) {\n  _mongoose2.default.Promise = global.Promise;\n  _mongoose2.default.connect(mongodb);\n}\napp.use(_express2.default.static('public'));\napp.get('/', function (req, res) {\n  res.sendFile(_path2.default.join(__dirname, '../views', 'index.html'));\n});\napp.use('/api', _search.searchApi);\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC5qcyJdLCJuYW1lcyI6WyJtb25nb2RiIiwicHJvY2VzcyIsImVudiIsIk1MQUJfVVJJIiwibW9uZ29vc2VJbml0IiwiYXBwIiwiUHJvbWlzZSIsImdsb2JhbCIsImNvbm5lY3QiLCJ1c2UiLCJzdGF0aWMiLCJnZXQiLCJyZXEiLCJyZXMiLCJzZW5kRmlsZSIsImpvaW4iLCJfX2Rpcm5hbWUiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7QUFBQTs7OztBQUNBOzs7O0FBQ0E7Ozs7QUFFQTs7OztBQUVBLElBQU1BLFVBQVVDLFFBQVFDLEdBQVIsQ0FBWUMsUUFBNUI7O0FBRUFDLGFBQWFKLE9BQWI7O0FBRU8sSUFBTUssb0JBQU0sd0JBQVosQyxDQUF1Qjs7O0FBRzlCO0FBQ0EsU0FBU0QsWUFBVCxDQUFzQkosT0FBdEIsRUFBK0I7QUFDN0IscUJBQVNNLE9BQVQsR0FBbUJDLE9BQU9ELE9BQTFCO0FBQ0EscUJBQVNFLE9BQVQsQ0FBaUJSLE9BQWpCO0FBQ0Q7QUFDREssSUFBSUksR0FBSixDQUFRLGtCQUFRQyxNQUFSLENBQWUsUUFBZixDQUFSO0FBQ0FMLElBQUlNLEdBQUosQ0FBUSxHQUFSLEVBQWEsVUFBQ0MsR0FBRCxFQUFNQyxHQUFOLEVBQWM7QUFDekJBLE1BQUlDLFFBQUosQ0FBYyxlQUFLQyxJQUFMLENBQVVDLFNBQVYsRUFBcUIsVUFBckIsRUFBZ0MsWUFBaEMsQ0FBZDtBQUNELENBRkQ7QUFHQVgsSUFBSUksR0FBSixDQUFRLE1BQVIiLCJmaWxlIjoiYXBwLmpzIiwic291cmNlUm9vdCI6Ii9hcHAvc3JjIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IGV4cHJlc3MgZnJvbSAnZXhwcmVzcyc7XG5pbXBvcnQgbW9uZ29vc2UgZnJvbSAnbW9uZ29vc2UnO1xuaW1wb3J0IHBhdGggZnJvbSAncGF0aCc7XG5cbmltcG9ydCB7IHNlYXJjaEFwaSB9IGZyb20gJy4vYXBpL3NlYXJjaCdcbiBcbmNvbnN0IG1vbmdvZGIgPSBwcm9jZXNzLmVudi5NTEFCX1VSSTtcblxubW9uZ29vc2VJbml0KG1vbmdvZGIpOyBcbiBcbmV4cG9ydCBjb25zdCBhcHAgPSBleHByZXNzKCk7IC8vIENyZWF0ZSBleHByZXNzIGFwcFxuIFxuIFxuLyogTW9uZ29vc2UgaW5pdGlhbGl6YXRpb24gZnVuY3Rpb24gKi9cbmZ1bmN0aW9uIG1vbmdvb3NlSW5pdChtb25nb2RiKSB7XG4gIG1vbmdvb3NlLlByb21pc2UgPSBnbG9iYWwuUHJvbWlzZTtcbiAgbW9uZ29vc2UuY29ubmVjdChtb25nb2RiKTtcbn1cbmFwcC51c2UoZXhwcmVzcy5zdGF0aWMoJ3B1YmxpYycpKVxuYXBwLmdldCgnLycsIChyZXEsIHJlcykgPT4ge1xuICByZXMuc2VuZEZpbGUoIHBhdGguam9pbihfX2Rpcm5hbWUgLCcuLi92aWV3cycsJ2luZGV4Lmh0bWwnKSlcbn0pO1xuYXBwLnVzZSgnL2FwaScsIHNlYXJjaEFwaSk7Il19",
+    "ast": null,
+    "map": {
+      "version": 3,
+      "sources": [
+        "app.js"
+      ],
+      "names": [
+        "mongodb",
+        "process",
+        "env",
+        "MLAB_URI",
+        "mongooseInit",
+        "app",
+        "Promise",
+        "global",
+        "connect",
+        "use",
+        "static",
+        "get",
+        "req",
+        "res",
+        "sendFile",
+        "join",
+        "__dirname"
+      ],
+      "mappings": ";;;;;;;AAAA;;;;AACA;;;;AACA;;;;AAEA;;;;AAEA,IAAMA,UAAUC,QAAQC,GAAR,CAAYC,QAA5B;;AAEAC,aAAaJ,OAAb;;AAEO,IAAMK,oBAAM,wBAAZ,C,CAAuB;;;AAG9B;AACA,SAASD,YAAT,CAAsBJ,OAAtB,EAA+B;AAC7B,qBAASM,OAAT,GAAmBC,OAAOD,OAA1B;AACA,qBAASE,OAAT,CAAiBR,OAAjB;AACD;AACDK,IAAII,GAAJ,CAAQ,kBAAQC,MAAR,CAAe,QAAf,CAAR;AACAL,IAAIM,GAAJ,CAAQ,GAAR,EAAa,UAACC,GAAD,EAAMC,GAAN,EAAc;AACzBA,MAAIC,QAAJ,CAAc,eAAKC,IAAL,CAAUC,SAAV,EAAqB,UAArB,EAAgC,YAAhC,CAAd;AACD,CAFD;AAGAX,IAAII,GAAJ,CAAQ,MAAR",
+      "file": "app.js",
+      "sourceRoot": "/app/src",
+      "sourcesContent": [
+        "import express from 'express';\nimport mongoose from 'mongoose';\nimport path from 'path';\n\nimport { searchApi } from './api/search'\n \nconst mongodb = process.env.MLAB_URI;\n\nmongooseInit(mongodb); \n \nexport const app = express(); // Create express app\n \n \n/* Mongoose initialization function */\nfunction mongooseInit(mongodb) {\n  mongoose.Promise = global.Promise;\n  mongoose.connect(mongodb);\n}\napp.use(express.static('public'))\napp.get('/', (req, res) => {\n  res.sendFile( path.join(__dirname ,'../views','index.html'))\n});\napp.use('/api', searchApi);"
+      ]
+    },
+    "mtime": 1509045935709
+  },
+  "{\"filename\":\"/app/src/api/search.js\",\"env\":{},\"retainLines\":false,\"highlightCode\":true,\"suppressDeprecationMessages\":false,\"presets\":[],\"plugins\":[[[],{\"loose\":false,\"spec\":false}],[[],null],[[],null],[[],{\"spec\":false}],[[],null],[[],{\"loose\":false}],[[],null],[[],null],[[],null],[[],{\"loose\":false}],[[],{\"loose\":false}],[[],null],[[],null],[[],null],[[],{\"loose\":false}],[[],null],[[],{\"loose\":false}],[[],null],[[],null],[[],{\"loose\":false}],[[],{\"async\":false,\"asyncGenerators\":false}]],\"ignore\":[],\"code\":true,\"metadata\":true,\"ast\":true,\"comments\":true,\"compact\":\"auto\",\"minified\":false,\"sourceRoot\":\"/app/src/api\",\"babelrc\":true,\"sourceType\":\"module\",\"moduleIds\":false,\"passPerPreset\":false,\"parserOpts\":false,\"generatorOpts\":false}:6.26.0": {
+    "metadata": {
+      "usedHelpers": [
+        "interopRequireDefault"
+      ],
+      "marked": [],
+      "modules": {
+        "imports": [
+          {
+            "source": "express",
+            "imported": [
+              "default"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "default",
+                "local": "express"
+              }
+            ]
+          }
+        ],
+        "exports": {
+          "exported": [
+            "searchApi"
+          ],
+          "specifiers": [
+            {
+              "kind": "local",
+              "local": "searchApi",
+              "exported": "searchApi"
+            }
+          ]
+        }
+      }
+    },
+    "options": {
+      "filename": "/app/src/api/search.js",
+      "filenameRelative": "/app/src/api/search.js",
+      "env": {},
+      "retainLines": false,
+      "highlightCode": true,
+      "suppressDeprecationMessages": false,
+      "presets": [],
+      "plugins": [
+        [
+          [],
+          {
+            "loose": false,
+            "spec": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "spec": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "async": false,
+            "asyncGenerators": false
+          }
+        ]
+      ],
+      "ignore": [],
+      "code": true,
+      "metadata": true,
+      "ast": false,
+      "comments": true,
+      "compact": "auto",
+      "minified": false,
+      "sourceMaps": "both",
+      "sourceMapTarget": "search.js",
+      "sourceFileName": "search.js",
+      "sourceRoot": "/app/src/api",
+      "babelrc": false,
+      "sourceType": "module",
+      "moduleRoot": "/app/src/api",
+      "moduleIds": false,
+      "passPerPreset": false,
+      "parserOpts": false,
+      "generatorOpts": false,
+      "basename": "search"
+    },
+    "ignored": false,
+    "code": "'use strict';\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.searchApi = undefined;\n\nvar _express = require('express');\n\nvar _express2 = _interopRequireDefault(_express);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar searchApi = exports.searchApi = _express2.default.Router();\nvar key = process.env.API_KEY;\nvar host = 'api.cognitive.microsoft.com';\nvar path = '/bing/v7.0/images/search';\n\nsearchApi.get('/imagesearch/:query', function (req, res) {\n  var query = req.params.query;\n});\n\nsearchApi.get('/api/latest/imagesearch', function (req, res) {});\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNlYXJjaC5qcyJdLCJuYW1lcyI6WyJzZWFyY2hBcGkiLCJSb3V0ZXIiLCJrZXkiLCJwcm9jZXNzIiwiZW52IiwiQVBJX0tFWSIsImhvc3QiLCJwYXRoIiwiZ2V0IiwicmVxIiwicmVzIiwicXVlcnkiLCJwYXJhbXMiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7QUFBQTs7Ozs7O0FBRU8sSUFBTUEsZ0NBQVcsa0JBQVFDLE1BQVIsRUFBakI7QUFDUCxJQUFJQyxNQUFLQyxRQUFRQyxHQUFSLENBQVlDLE9BQXJCO0FBQ0EsSUFBSUMsT0FBTyw2QkFBWDtBQUNBLElBQUlDLE9BQU8sMEJBQVg7O0FBRUFQLFVBQVVRLEdBQVYsQ0FBYyxxQkFBZCxFQUFvQyxVQUFDQyxHQUFELEVBQUtDLEdBQUwsRUFBVztBQUM3QyxNQUFJQyxRQUFNRixJQUFJRyxNQUFKLENBQVdELEtBQXJCO0FBRUMsQ0FISDs7QUFLQVgsVUFBVVEsR0FBVixDQUFjLHlCQUFkLEVBQXdDLFVBQUNDLEdBQUQsRUFBS0MsR0FBTCxFQUFXLENBRWxELENBRkQiLCJmaWxlIjoic2VhcmNoLmpzIiwic291cmNlUm9vdCI6Ii9hcHAvc3JjL2FwaSIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBleHByZXNzIGZyb20gJ2V4cHJlc3MnO1xuXG5leHBvcnQgY29uc3Qgc2VhcmNoQXBpPSBleHByZXNzLlJvdXRlcigpO1xubGV0IGtleT0gcHJvY2Vzcy5lbnYuQVBJX0tFWTtcbmxldCBob3N0ID0gJ2FwaS5jb2duaXRpdmUubWljcm9zb2Z0LmNvbSc7XG5sZXQgcGF0aCA9ICcvYmluZy92Ny4wL2ltYWdlcy9zZWFyY2gnO1xuXG5zZWFyY2hBcGkuZ2V0KCcvaW1hZ2VzZWFyY2gvOnF1ZXJ5JywocmVxLHJlcyk9PntcbiAgbGV0IHF1ZXJ5PXJlcS5wYXJhbXMucXVlcnk7XG4gIFxuICB9KTtcblxuc2VhcmNoQXBpLmdldCgnL2FwaS9sYXRlc3QvaW1hZ2VzZWFyY2gnLChyZXEscmVzKT0+e1xuICBcbn0pOyJdfQ==",
+    "ast": null,
+    "map": {
+      "version": 3,
+      "sources": [
+        "search.js"
+      ],
+      "names": [
+        "searchApi",
+        "Router",
+        "key",
+        "process",
+        "env",
+        "API_KEY",
+        "host",
+        "path",
+        "get",
+        "req",
+        "res",
+        "query",
+        "params"
+      ],
+      "mappings": ";;;;;;;AAAA;;;;;;AAEO,IAAMA,gCAAW,kBAAQC,MAAR,EAAjB;AACP,IAAIC,MAAKC,QAAQC,GAAR,CAAYC,OAArB;AACA,IAAIC,OAAO,6BAAX;AACA,IAAIC,OAAO,0BAAX;;AAEAP,UAAUQ,GAAV,CAAc,qBAAd,EAAoC,UAACC,GAAD,EAAKC,GAAL,EAAW;AAC7C,MAAIC,QAAMF,IAAIG,MAAJ,CAAWD,KAArB;AAEC,CAHH;;AAKAX,UAAUQ,GAAV,CAAc,yBAAd,EAAwC,UAACC,GAAD,EAAKC,GAAL,EAAW,CAElD,CAFD",
+      "file": "search.js",
+      "sourceRoot": "/app/src/api",
+      "sourcesContent": [
+        "import express from 'express';\n\nexport const searchApi= express.Router();\nlet key= process.env.API_KEY;\nlet host = 'api.cognitive.microsoft.com';\nlet path = '/bing/v7.0/images/search';\n\nsearchApi.get('/imagesearch/:query',(req,res)=>{\n  let query=req.params.query;\n  \n  });\n\nsearchApi.get('/api/latest/imagesearch',(req,res)=>{\n  \n});"
+      ]
+    },
+    "mtime": 1509048495662
+  }
+}
