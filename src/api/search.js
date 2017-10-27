@@ -10,17 +10,8 @@ let body = '';
 
 searchApi.get('/imagesearch/:query',(req,res)=>{
   let query=req.params.query;
-  let request_params = {
-        method : 'GET',
-        hostname : host,
-        path : path + '?q=' + encodeURIComponent(query),
-        headers : {
-            'Ocp-Apim-Subscription-Key' : key,
-        }
-    };
-
-    let request= https.request(request_params, response_handler);
-      res.redirect(request); 
+  res.setHeader('Ocp-Apim-Subscription-Key' ,key);
+      res.redirect('https://'+host+path+'?q=' + encodeURIComponent(query)); 
   });
 let response_handler = function (response) {
     response.on('data', function (d) {
