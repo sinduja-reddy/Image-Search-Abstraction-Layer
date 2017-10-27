@@ -47,6 +47,19 @@
             ]
           },
           {
+            "source": "body-parser",
+            "imported": [
+              "default"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "default",
+                "local": "bodyParser"
+              }
+            ]
+          },
+          {
             "source": "./api/search",
             "imported": [
               "searchApi"
@@ -209,7 +222,7 @@
       "basename": "app"
     },
     "ignored": false,
-    "code": "'use strict';\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.app = undefined;\n\nvar _express = require('express');\n\nvar _express2 = _interopRequireDefault(_express);\n\nvar _mongoose = require('mongoose');\n\nvar _mongoose2 = _interopRequireDefault(_mongoose);\n\nvar _path = require('path');\n\nvar _path2 = _interopRequireDefault(_path);\n\nvar _search = require('./api/search');\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar mongodb = process.env.MLAB_URI;\n\nmongooseInit(mongodb);\n\nvar app = exports.app = (0, _express2.default)(); // Create express app\n\n\n/* Mongoose initialization function */\nfunction mongooseInit(mongodb) {\n  _mongoose2.default.Promise = global.Promise;\n  _mongoose2.default.connect(mongodb);\n}\napp.use(_express2.default.static('public'));\napp.get('/', function (req, res) {\n  res.sendFile(_path2.default.join(__dirname, '../views', 'index.html'));\n});\napp.use('/api', _search.searchApi);\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC5qcyJdLCJuYW1lcyI6WyJtb25nb2RiIiwicHJvY2VzcyIsImVudiIsIk1MQUJfVVJJIiwibW9uZ29vc2VJbml0IiwiYXBwIiwiUHJvbWlzZSIsImdsb2JhbCIsImNvbm5lY3QiLCJ1c2UiLCJzdGF0aWMiLCJnZXQiLCJyZXEiLCJyZXMiLCJzZW5kRmlsZSIsImpvaW4iLCJfX2Rpcm5hbWUiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7QUFBQTs7OztBQUNBOzs7O0FBQ0E7Ozs7QUFFQTs7OztBQUVBLElBQU1BLFVBQVVDLFFBQVFDLEdBQVIsQ0FBWUMsUUFBNUI7O0FBRUFDLGFBQWFKLE9BQWI7O0FBRU8sSUFBTUssb0JBQU0sd0JBQVosQyxDQUF1Qjs7O0FBRzlCO0FBQ0EsU0FBU0QsWUFBVCxDQUFzQkosT0FBdEIsRUFBK0I7QUFDN0IscUJBQVNNLE9BQVQsR0FBbUJDLE9BQU9ELE9BQTFCO0FBQ0EscUJBQVNFLE9BQVQsQ0FBaUJSLE9BQWpCO0FBQ0Q7QUFDREssSUFBSUksR0FBSixDQUFRLGtCQUFRQyxNQUFSLENBQWUsUUFBZixDQUFSO0FBQ0FMLElBQUlNLEdBQUosQ0FBUSxHQUFSLEVBQWEsVUFBQ0MsR0FBRCxFQUFNQyxHQUFOLEVBQWM7QUFDekJBLE1BQUlDLFFBQUosQ0FBYyxlQUFLQyxJQUFMLENBQVVDLFNBQVYsRUFBcUIsVUFBckIsRUFBZ0MsWUFBaEMsQ0FBZDtBQUNELENBRkQ7QUFHQVgsSUFBSUksR0FBSixDQUFRLE1BQVIiLCJmaWxlIjoiYXBwLmpzIiwic291cmNlUm9vdCI6Ii9hcHAvc3JjIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IGV4cHJlc3MgZnJvbSAnZXhwcmVzcyc7XG5pbXBvcnQgbW9uZ29vc2UgZnJvbSAnbW9uZ29vc2UnO1xuaW1wb3J0IHBhdGggZnJvbSAncGF0aCc7XG5cbmltcG9ydCB7IHNlYXJjaEFwaSB9IGZyb20gJy4vYXBpL3NlYXJjaCdcbiBcbmNvbnN0IG1vbmdvZGIgPSBwcm9jZXNzLmVudi5NTEFCX1VSSTtcblxubW9uZ29vc2VJbml0KG1vbmdvZGIpOyBcbiBcbmV4cG9ydCBjb25zdCBhcHAgPSBleHByZXNzKCk7IC8vIENyZWF0ZSBleHByZXNzIGFwcFxuIFxuIFxuLyogTW9uZ29vc2UgaW5pdGlhbGl6YXRpb24gZnVuY3Rpb24gKi9cbmZ1bmN0aW9uIG1vbmdvb3NlSW5pdChtb25nb2RiKSB7XG4gIG1vbmdvb3NlLlByb21pc2UgPSBnbG9iYWwuUHJvbWlzZTtcbiAgbW9uZ29vc2UuY29ubmVjdChtb25nb2RiKTtcbn1cbmFwcC51c2UoZXhwcmVzcy5zdGF0aWMoJ3B1YmxpYycpKVxuYXBwLmdldCgnLycsIChyZXEsIHJlcykgPT4ge1xuICByZXMuc2VuZEZpbGUoIHBhdGguam9pbihfX2Rpcm5hbWUgLCcuLi92aWV3cycsJ2luZGV4Lmh0bWwnKSlcbn0pO1xuYXBwLnVzZSgnL2FwaScsIHNlYXJjaEFwaSk7Il19",
+    "code": "'use strict';\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.app = undefined;\n\nvar _express = require('express');\n\nvar _express2 = _interopRequireDefault(_express);\n\nvar _mongoose = require('mongoose');\n\nvar _mongoose2 = _interopRequireDefault(_mongoose);\n\nvar _path = require('path');\n\nvar _path2 = _interopRequireDefault(_path);\n\nvar _bodyParser = require('body-parser');\n\nvar _bodyParser2 = _interopRequireDefault(_bodyParser);\n\nvar _search = require('./api/search');\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar mongodb = process.env.MLAB_URI;\n\nmongooseInit(mongodb);\n\nvar app = exports.app = (0, _express2.default)(); // Create express app\n\napp.use(_bodyParser2.default.urlencoded({ extended: false }));\napp.use(_bodyParser2.default.json());\n/* Mongoose initialization function */\nfunction mongooseInit(mongodb) {\n  _mongoose2.default.Promise = global.Promise;\n  _mongoose2.default.connect(mongodb);\n}\napp.use(_express2.default.static('public'));\napp.get('/', function (req, res) {\n  res.sendFile(_path2.default.join(__dirname, '../views', 'index.html'));\n});\napp.use('/api', _search.searchApi);\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC5qcyJdLCJuYW1lcyI6WyJtb25nb2RiIiwicHJvY2VzcyIsImVudiIsIk1MQUJfVVJJIiwibW9uZ29vc2VJbml0IiwiYXBwIiwidXNlIiwidXJsZW5jb2RlZCIsImV4dGVuZGVkIiwianNvbiIsIlByb21pc2UiLCJnbG9iYWwiLCJjb25uZWN0Iiwic3RhdGljIiwiZ2V0IiwicmVxIiwicmVzIiwic2VuZEZpbGUiLCJqb2luIiwiX19kaXJuYW1lIl0sIm1hcHBpbmdzIjoiOzs7Ozs7O0FBQUE7Ozs7QUFDQTs7OztBQUNBOzs7O0FBRUE7Ozs7QUFDQTs7OztBQUVBLElBQU1BLFVBQVVDLFFBQVFDLEdBQVIsQ0FBWUMsUUFBNUI7O0FBRUFDLGFBQWFKLE9BQWI7O0FBRU8sSUFBTUssb0JBQU0sd0JBQVosQyxDQUF1Qjs7QUFFOUJBLElBQUlDLEdBQUosQ0FBUSxxQkFBV0MsVUFBWCxDQUFzQixFQUFDQyxVQUFVLEtBQVgsRUFBdEIsQ0FBUjtBQUNBSCxJQUFJQyxHQUFKLENBQVEscUJBQVdHLElBQVgsRUFBUjtBQUNBO0FBQ0EsU0FBU0wsWUFBVCxDQUFzQkosT0FBdEIsRUFBK0I7QUFDN0IscUJBQVNVLE9BQVQsR0FBbUJDLE9BQU9ELE9BQTFCO0FBQ0EscUJBQVNFLE9BQVQsQ0FBaUJaLE9BQWpCO0FBQ0Q7QUFDREssSUFBSUMsR0FBSixDQUFRLGtCQUFRTyxNQUFSLENBQWUsUUFBZixDQUFSO0FBQ0FSLElBQUlTLEdBQUosQ0FBUSxHQUFSLEVBQWEsVUFBQ0MsR0FBRCxFQUFNQyxHQUFOLEVBQWM7QUFDekJBLE1BQUlDLFFBQUosQ0FBYyxlQUFLQyxJQUFMLENBQVVDLFNBQVYsRUFBcUIsVUFBckIsRUFBZ0MsWUFBaEMsQ0FBZDtBQUNELENBRkQ7QUFHQWQsSUFBSUMsR0FBSixDQUFRLE1BQVIiLCJmaWxlIjoiYXBwLmpzIiwic291cmNlUm9vdCI6Ii9hcHAvc3JjIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IGV4cHJlc3MgZnJvbSAnZXhwcmVzcyc7XG5pbXBvcnQgbW9uZ29vc2UgZnJvbSAnbW9uZ29vc2UnO1xuaW1wb3J0IHBhdGggZnJvbSAncGF0aCc7XG5cbmltcG9ydCBib2R5UGFyc2VyIGZyb20gJ2JvZHktcGFyc2VyJztcbmltcG9ydCB7IHNlYXJjaEFwaSB9IGZyb20gJy4vYXBpL3NlYXJjaCdcbiBcbmNvbnN0IG1vbmdvZGIgPSBwcm9jZXNzLmVudi5NTEFCX1VSSTtcblxubW9uZ29vc2VJbml0KG1vbmdvZGIpOyBcbiBcbmV4cG9ydCBjb25zdCBhcHAgPSBleHByZXNzKCk7IC8vIENyZWF0ZSBleHByZXNzIGFwcFxuIFxuYXBwLnVzZShib2R5UGFyc2VyLnVybGVuY29kZWQoe2V4dGVuZGVkOiBmYWxzZX0pKVxuYXBwLnVzZShib2R5UGFyc2VyLmpzb24oKSlcbi8qIE1vbmdvb3NlIGluaXRpYWxpemF0aW9uIGZ1bmN0aW9uICovXG5mdW5jdGlvbiBtb25nb29zZUluaXQobW9uZ29kYikge1xuICBtb25nb29zZS5Qcm9taXNlID0gZ2xvYmFsLlByb21pc2U7XG4gIG1vbmdvb3NlLmNvbm5lY3QobW9uZ29kYik7XG59XG5hcHAudXNlKGV4cHJlc3Muc3RhdGljKCdwdWJsaWMnKSlcbmFwcC5nZXQoJy8nLCAocmVxLCByZXMpID0+IHtcbiAgcmVzLnNlbmRGaWxlKCBwYXRoLmpvaW4oX19kaXJuYW1lICwnLi4vdmlld3MnLCdpbmRleC5odG1sJykpXG59KTtcbmFwcC51c2UoJy9hcGknLCBzZWFyY2hBcGkpOyJdfQ==",
     "ast": null,
     "map": {
       "version": 3,
@@ -223,10 +236,13 @@
         "MLAB_URI",
         "mongooseInit",
         "app",
+        "use",
+        "urlencoded",
+        "extended",
+        "json",
         "Promise",
         "global",
         "connect",
-        "use",
         "static",
         "get",
         "req",
@@ -235,14 +251,14 @@
         "join",
         "__dirname"
       ],
-      "mappings": ";;;;;;;AAAA;;;;AACA;;;;AACA;;;;AAEA;;;;AAEA,IAAMA,UAAUC,QAAQC,GAAR,CAAYC,QAA5B;;AAEAC,aAAaJ,OAAb;;AAEO,IAAMK,oBAAM,wBAAZ,C,CAAuB;;;AAG9B;AACA,SAASD,YAAT,CAAsBJ,OAAtB,EAA+B;AAC7B,qBAASM,OAAT,GAAmBC,OAAOD,OAA1B;AACA,qBAASE,OAAT,CAAiBR,OAAjB;AACD;AACDK,IAAII,GAAJ,CAAQ,kBAAQC,MAAR,CAAe,QAAf,CAAR;AACAL,IAAIM,GAAJ,CAAQ,GAAR,EAAa,UAACC,GAAD,EAAMC,GAAN,EAAc;AACzBA,MAAIC,QAAJ,CAAc,eAAKC,IAAL,CAAUC,SAAV,EAAqB,UAArB,EAAgC,YAAhC,CAAd;AACD,CAFD;AAGAX,IAAII,GAAJ,CAAQ,MAAR",
+      "mappings": ";;;;;;;AAAA;;;;AACA;;;;AACA;;;;AAEA;;;;AACA;;;;AAEA,IAAMA,UAAUC,QAAQC,GAAR,CAAYC,QAA5B;;AAEAC,aAAaJ,OAAb;;AAEO,IAAMK,oBAAM,wBAAZ,C,CAAuB;;AAE9BA,IAAIC,GAAJ,CAAQ,qBAAWC,UAAX,CAAsB,EAACC,UAAU,KAAX,EAAtB,CAAR;AACAH,IAAIC,GAAJ,CAAQ,qBAAWG,IAAX,EAAR;AACA;AACA,SAASL,YAAT,CAAsBJ,OAAtB,EAA+B;AAC7B,qBAASU,OAAT,GAAmBC,OAAOD,OAA1B;AACA,qBAASE,OAAT,CAAiBZ,OAAjB;AACD;AACDK,IAAIC,GAAJ,CAAQ,kBAAQO,MAAR,CAAe,QAAf,CAAR;AACAR,IAAIS,GAAJ,CAAQ,GAAR,EAAa,UAACC,GAAD,EAAMC,GAAN,EAAc;AACzBA,MAAIC,QAAJ,CAAc,eAAKC,IAAL,CAAUC,SAAV,EAAqB,UAArB,EAAgC,YAAhC,CAAd;AACD,CAFD;AAGAd,IAAIC,GAAJ,CAAQ,MAAR",
       "file": "app.js",
       "sourceRoot": "/app/src",
       "sourcesContent": [
-        "import express from 'express';\nimport mongoose from 'mongoose';\nimport path from 'path';\n\nimport { searchApi } from './api/search'\n \nconst mongodb = process.env.MLAB_URI;\n\nmongooseInit(mongodb); \n \nexport const app = express(); // Create express app\n \n \n/* Mongoose initialization function */\nfunction mongooseInit(mongodb) {\n  mongoose.Promise = global.Promise;\n  mongoose.connect(mongodb);\n}\napp.use(express.static('public'))\napp.get('/', (req, res) => {\n  res.sendFile( path.join(__dirname ,'../views','index.html'))\n});\napp.use('/api', searchApi);"
+        "import express from 'express';\nimport mongoose from 'mongoose';\nimport path from 'path';\n\nimport bodyParser from 'body-parser';\nimport { searchApi } from './api/search'\n \nconst mongodb = process.env.MLAB_URI;\n\nmongooseInit(mongodb); \n \nexport const app = express(); // Create express app\n \napp.use(bodyParser.urlencoded({extended: false}))\napp.use(bodyParser.json())\n/* Mongoose initialization function */\nfunction mongooseInit(mongodb) {\n  mongoose.Promise = global.Promise;\n  mongoose.connect(mongodb);\n}\napp.use(express.static('public'))\napp.get('/', (req, res) => {\n  res.sendFile( path.join(__dirname ,'../views','index.html'))\n});\napp.use('/api', searchApi);"
       ]
     },
-    "mtime": 1509103806113
+    "mtime": 1509116343243
   },
   "{\"filename\":\"/app/src/api/search.js\",\"env\":{},\"retainLines\":false,\"highlightCode\":true,\"suppressDeprecationMessages\":false,\"presets\":[],\"plugins\":[[[],{\"loose\":false,\"spec\":false}],[[],null],[[],null],[[],{\"spec\":false}],[[],null],[[],{\"loose\":false}],[[],null],[[],null],[[],null],[[],{\"loose\":false}],[[],{\"loose\":false}],[[],null],[[],null],[[],null],[[],{\"loose\":false}],[[],null],[[],{\"loose\":false}],[[],null],[[],null],[[],{\"loose\":false}],[[],{\"async\":false,\"asyncGenerators\":false}]],\"ignore\":[],\"code\":true,\"metadata\":true,\"ast\":true,\"comments\":true,\"compact\":\"auto\",\"minified\":false,\"sourceRoot\":\"/app/src/api\",\"babelrc\":true,\"sourceType\":\"module\",\"moduleIds\":false,\"passPerPreset\":false,\"parserOpts\":false,\"generatorOpts\":false}:6.26.0": {
     "metadata": {
@@ -262,6 +278,19 @@
                 "kind": "named",
                 "imported": "default",
                 "local": "express"
+              }
+            ]
+          },
+          {
+            "source": "./searchHistory",
+            "imported": [
+              "SearchHistory"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "SearchHistory",
+                "local": "SearchHistory"
               }
             ]
           }
@@ -415,7 +444,7 @@
       "basename": "search"
     },
     "ignored": false,
-    "code": "'use strict';\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nexports.searchApi = undefined;\n\nvar _express = require('express');\n\nvar _express2 = _interopRequireDefault(_express);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar searchApi = exports.searchApi = _express2.default.Router();\nvar key = process.env.API_KEY;\nvar host = 'api.cognitive.microsoft.com';\nvar path = '/bing/v7.0/images/search';\nvar https = require('https');\nvar body = '';\n\nsearchApi.get('/imagesearch/:query', function (req, res) {\n    var query = req.params.query;\n    res.setHeader('Ocp-Apim-Subscription-Key', key);\n    res.redirect('https://' + host + path + '?q=' + encodeURIComponent(query));\n});\nvar response_handler = function response_handler(response) {\n    response.on('data', function (d) {\n        body += d;\n    });\n    response.on('end', function () {\n        console.log('\\nRelevant Headers:\\n');\n        for (var header in response.headers) {\n            // header keys are lower-cased by Node.js\n            if (header.startsWith(\"bingapis-\") || header.startsWith(\"x-msedge-\")) body = JSON.stringify(JSON.parse(body), null, '  ');\n        }\n    });\n    response.on('error', function (e) {\n        console.log('Error: ' + e.message);\n    });\n};\nvar bing_web_search = function bing_web_search(search) {\n    console.log('Searching the Web for: ' + search);\n    var request_params = {\n        method: 'GET',\n        hostname: host,\n        path: path + '?q=' + encodeURIComponent(search),\n        headers: {\n            'Ocp-Apim-Subscription-Key': key\n        }\n    };\n\n    var req = https.request(request_params, response_handler);\n    req.end();\n};\nsearchApi.get('/api/latest/imagesearch', function (req, res) {});\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNlYXJjaC5qcyJdLCJuYW1lcyI6WyJzZWFyY2hBcGkiLCJSb3V0ZXIiLCJrZXkiLCJwcm9jZXNzIiwiZW52IiwiQVBJX0tFWSIsImhvc3QiLCJwYXRoIiwiaHR0cHMiLCJyZXF1aXJlIiwiYm9keSIsImdldCIsInJlcSIsInJlcyIsInF1ZXJ5IiwicGFyYW1zIiwic2V0SGVhZGVyIiwicmVkaXJlY3QiLCJlbmNvZGVVUklDb21wb25lbnQiLCJyZXNwb25zZV9oYW5kbGVyIiwicmVzcG9uc2UiLCJvbiIsImQiLCJjb25zb2xlIiwibG9nIiwiaGVhZGVyIiwiaGVhZGVycyIsInN0YXJ0c1dpdGgiLCJKU09OIiwic3RyaW5naWZ5IiwicGFyc2UiLCJlIiwibWVzc2FnZSIsImJpbmdfd2ViX3NlYXJjaCIsInNlYXJjaCIsInJlcXVlc3RfcGFyYW1zIiwibWV0aG9kIiwiaG9zdG5hbWUiLCJyZXF1ZXN0IiwiZW5kIl0sIm1hcHBpbmdzIjoiOzs7Ozs7O0FBQUE7Ozs7OztBQUVPLElBQU1BLGdDQUFXLGtCQUFRQyxNQUFSLEVBQWpCO0FBQ1AsSUFBSUMsTUFBS0MsUUFBUUMsR0FBUixDQUFZQyxPQUFyQjtBQUNBLElBQUlDLE9BQU8sNkJBQVg7QUFDQSxJQUFJQyxPQUFPLDBCQUFYO0FBQ0EsSUFBSUMsUUFBUUMsUUFBUSxPQUFSLENBQVo7QUFDQSxJQUFJQyxPQUFPLEVBQVg7O0FBR0FWLFVBQVVXLEdBQVYsQ0FBYyxxQkFBZCxFQUFvQyxVQUFDQyxHQUFELEVBQUtDLEdBQUwsRUFBVztBQUM3QyxRQUFJQyxRQUFNRixJQUFJRyxNQUFKLENBQVdELEtBQXJCO0FBQ0FELFFBQUlHLFNBQUosQ0FBYywyQkFBZCxFQUEyQ2QsR0FBM0M7QUFDSVcsUUFBSUksUUFBSixDQUFhLGFBQVdYLElBQVgsR0FBZ0JDLElBQWhCLEdBQXFCLEtBQXJCLEdBQTZCVyxtQkFBbUJKLEtBQW5CLENBQTFDO0FBQ0gsQ0FKSDtBQUtBLElBQUlLLG1CQUFtQixTQUFuQkEsZ0JBQW1CLENBQVVDLFFBQVYsRUFBb0I7QUFDdkNBLGFBQVNDLEVBQVQsQ0FBWSxNQUFaLEVBQW9CLFVBQVVDLENBQVYsRUFBYTtBQUM3QlosZ0JBQVFZLENBQVI7QUFDSCxLQUZEO0FBR0FGLGFBQVNDLEVBQVQsQ0FBWSxLQUFaLEVBQW1CLFlBQVk7QUFDM0JFLGdCQUFRQyxHQUFSLENBQVksdUJBQVo7QUFDQSxhQUFLLElBQUlDLE1BQVQsSUFBbUJMLFNBQVNNLE9BQTVCO0FBQ0k7QUFDQSxnQkFBSUQsT0FBT0UsVUFBUCxDQUFrQixXQUFsQixLQUFrQ0YsT0FBT0UsVUFBUCxDQUFrQixXQUFsQixDQUF0QyxFQUNIakIsT0FBT2tCLEtBQUtDLFNBQUwsQ0FBZUQsS0FBS0UsS0FBTCxDQUFXcEIsSUFBWCxDQUFmLEVBQWlDLElBQWpDLEVBQXVDLElBQXZDLENBQVA7QUFIRDtBQUlQLEtBTkc7QUFPQVUsYUFBU0MsRUFBVCxDQUFZLE9BQVosRUFBcUIsVUFBVVUsQ0FBVixFQUFhO0FBQzlCUixnQkFBUUMsR0FBUixDQUFZLFlBQVlPLEVBQUVDLE9BQTFCO0FBQ0gsS0FGRDtBQUdILENBZEQ7QUFlQSxJQUFJQyxrQkFBa0IsU0FBbEJBLGVBQWtCLENBQVVDLE1BQVYsRUFBa0I7QUFDdENYLFlBQVFDLEdBQVIsQ0FBWSw0QkFBNEJVLE1BQXhDO0FBQ0EsUUFBSUMsaUJBQWlCO0FBQ2ZDLGdCQUFTLEtBRE07QUFFZkMsa0JBQVcvQixJQUZJO0FBR2ZDLGNBQU9BLE9BQU8sS0FBUCxHQUFlVyxtQkFBbUJnQixNQUFuQixDQUhQO0FBSWZSLGlCQUFVO0FBQ04seUNBQThCeEI7QUFEeEI7QUFKSyxLQUFyQjs7QUFTRSxRQUFJVSxNQUFNSixNQUFNOEIsT0FBTixDQUFjSCxjQUFkLEVBQThCaEIsZ0JBQTlCLENBQVY7QUFDQVAsUUFBSTJCLEdBQUo7QUFDSCxDQWJEO0FBY0F2QyxVQUFVVyxHQUFWLENBQWMseUJBQWQsRUFBd0MsVUFBQ0MsR0FBRCxFQUFLQyxHQUFMLEVBQVcsQ0FFbEQsQ0FGRCIsImZpbGUiOiJzZWFyY2guanMiLCJzb3VyY2VSb290IjoiL2FwcC9zcmMvYXBpIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IGV4cHJlc3MgZnJvbSAnZXhwcmVzcyc7XG5cbmV4cG9ydCBjb25zdCBzZWFyY2hBcGk9IGV4cHJlc3MuUm91dGVyKCk7XG5sZXQga2V5PSBwcm9jZXNzLmVudi5BUElfS0VZO1xubGV0IGhvc3QgPSAnYXBpLmNvZ25pdGl2ZS5taWNyb3NvZnQuY29tJztcbmxldCBwYXRoID0gJy9iaW5nL3Y3LjAvaW1hZ2VzL3NlYXJjaCc7XG5sZXQgaHR0cHMgPSByZXF1aXJlKCdodHRwcycpO1xubGV0IGJvZHkgPSAnJztcblxuXG5zZWFyY2hBcGkuZ2V0KCcvaW1hZ2VzZWFyY2gvOnF1ZXJ5JywocmVxLHJlcyk9PntcbiAgbGV0IHF1ZXJ5PXJlcS5wYXJhbXMucXVlcnk7XG4gIHJlcy5zZXRIZWFkZXIoJ09jcC1BcGltLVN1YnNjcmlwdGlvbi1LZXknICxrZXkpO1xuICAgICAgcmVzLnJlZGlyZWN0KCdodHRwczovLycraG9zdCtwYXRoKyc/cT0nICsgZW5jb2RlVVJJQ29tcG9uZW50KHF1ZXJ5KSk7IFxuICB9KTtcbmxldCByZXNwb25zZV9oYW5kbGVyID0gZnVuY3Rpb24gKHJlc3BvbnNlKSB7XG4gICAgcmVzcG9uc2Uub24oJ2RhdGEnLCBmdW5jdGlvbiAoZCkge1xuICAgICAgICBib2R5ICs9IGQ7XG4gICAgfSk7XG4gICAgcmVzcG9uc2Uub24oJ2VuZCcsIGZ1bmN0aW9uICgpIHtcbiAgICAgICAgY29uc29sZS5sb2coJ1xcblJlbGV2YW50IEhlYWRlcnM6XFxuJyk7XG4gICAgICAgIGZvciAodmFyIGhlYWRlciBpbiByZXNwb25zZS5oZWFkZXJzKVxuICAgICAgICAgICAgLy8gaGVhZGVyIGtleXMgYXJlIGxvd2VyLWNhc2VkIGJ5IE5vZGUuanNcbiAgICAgICAgICAgIGlmIChoZWFkZXIuc3RhcnRzV2l0aChcImJpbmdhcGlzLVwiKSB8fCBoZWFkZXIuc3RhcnRzV2l0aChcIngtbXNlZGdlLVwiKSlcbiAgICAgICAgIGJvZHkgPSBKU09OLnN0cmluZ2lmeShKU09OLnBhcnNlKGJvZHkpLCBudWxsLCAnICAnKTtcbn0pO1xuICAgIHJlc3BvbnNlLm9uKCdlcnJvcicsIGZ1bmN0aW9uIChlKSB7XG4gICAgICAgIGNvbnNvbGUubG9nKCdFcnJvcjogJyArIGUubWVzc2FnZSk7XG4gICAgfSk7XG59O1xubGV0IGJpbmdfd2ViX3NlYXJjaCA9IGZ1bmN0aW9uIChzZWFyY2gpIHtcbiAgY29uc29sZS5sb2coJ1NlYXJjaGluZyB0aGUgV2ViIGZvcjogJyArIHNlYXJjaCk7XG4gIGxldCByZXF1ZXN0X3BhcmFtcyA9IHtcbiAgICAgICAgbWV0aG9kIDogJ0dFVCcsXG4gICAgICAgIGhvc3RuYW1lIDogaG9zdCxcbiAgICAgICAgcGF0aCA6IHBhdGggKyAnP3E9JyArIGVuY29kZVVSSUNvbXBvbmVudChzZWFyY2gpLFxuICAgICAgICBoZWFkZXJzIDoge1xuICAgICAgICAgICAgJ09jcC1BcGltLVN1YnNjcmlwdGlvbi1LZXknIDoga2V5LFxuICAgICAgICB9XG4gICAgfTtcblxuICAgIGxldCByZXEgPSBodHRwcy5yZXF1ZXN0KHJlcXVlc3RfcGFyYW1zLCByZXNwb25zZV9oYW5kbGVyKTtcbiAgICByZXEuZW5kKCk7XG59XG5zZWFyY2hBcGkuZ2V0KCcvYXBpL2xhdGVzdC9pbWFnZXNlYXJjaCcsKHJlcSxyZXMpPT57XG4gIFxufSk7Il19",
+    "code": "'use strict';\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.searchApi = undefined;\n\nvar _express = require('express');\n\nvar _express2 = _interopRequireDefault(_express);\n\nvar _searchHistory = require('./searchHistory');\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar searchApi = exports.searchApi = _express2.default.Router();\n\nvar key = process.env.API_KEY;\nvar host = 'api.cognitive.microsoft.com';\nvar path = '/bing/v7.0/images/search';\nvar https = require('https');\nvar request = require('request');\n\nsearchApi.post('/imagesearch/query', function (req, res) {\n  var query = req.body.query,\n      timestamp = Date.now();\n  var queryHistory = new _searchHistory.SearchHistory({ query: query, timestamp: timestamp });\n  queryHistory.save();\n\n  request({\n    url: 'https://' + host + path + '?q=' + encodeURIComponent(query),\n    headers: { 'Ocp-Apim-Subscription-Key': key }\n  }, function (err, response, body) {\n    var myobj = JSON.parse(body);\n    var result = myobj.value.map(function (d) {\n      return {\n        'url': d.webSearchUrl,\n        'snippet': d.name,\n        'thumbnail': d.thumbnailUrl,\n        'context': d.contentUrl\n      };\n    });\n    res.json(result);\n  });\n});\n\nsearchApi.get('/latest/imagesearch', function (req, res) {\n  _searchHistory.SearchHistory.find().select({ _id: 0, query: 1, timestamp: 1 }).sort({ timestamp: -1 }).limit(10).then(function (results) {\n    res.status(200).json(results);\n  });\n});\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNlYXJjaC5qcyJdLCJuYW1lcyI6WyJzZWFyY2hBcGkiLCJSb3V0ZXIiLCJrZXkiLCJwcm9jZXNzIiwiZW52IiwiQVBJX0tFWSIsImhvc3QiLCJwYXRoIiwiaHR0cHMiLCJyZXF1aXJlIiwicmVxdWVzdCIsInBvc3QiLCJyZXEiLCJyZXMiLCJxdWVyeSIsImJvZHkiLCJ0aW1lc3RhbXAiLCJEYXRlIiwibm93IiwicXVlcnlIaXN0b3J5Iiwic2F2ZSIsInVybCIsImVuY29kZVVSSUNvbXBvbmVudCIsImhlYWRlcnMiLCJlcnIiLCJyZXNwb25zZSIsIm15b2JqIiwiSlNPTiIsInBhcnNlIiwicmVzdWx0IiwidmFsdWUiLCJtYXAiLCJkIiwid2ViU2VhcmNoVXJsIiwibmFtZSIsInRodW1ibmFpbFVybCIsImNvbnRlbnRVcmwiLCJqc29uIiwiZ2V0IiwiZmluZCIsInNlbGVjdCIsIl9pZCIsInNvcnQiLCJsaW1pdCIsInRoZW4iLCJzdGF0dXMiLCJyZXN1bHRzIl0sIm1hcHBpbmdzIjoiOzs7Ozs7O0FBQUE7Ozs7QUFDQTs7OztBQUVPLElBQU1BLGdDQUFXLGtCQUFRQyxNQUFSLEVBQWpCOztBQUVQLElBQUlDLE1BQUtDLFFBQVFDLEdBQVIsQ0FBWUMsT0FBckI7QUFDQSxJQUFJQyxPQUFPLDZCQUFYO0FBQ0EsSUFBSUMsT0FBTywwQkFBWDtBQUNBLElBQUlDLFFBQVFDLFFBQVEsT0FBUixDQUFaO0FBQ0EsSUFBSUMsVUFBVUQsUUFBUSxTQUFSLENBQWQ7O0FBRUFULFVBQVVXLElBQVYsQ0FBZSxvQkFBZixFQUFvQyxVQUFDQyxHQUFELEVBQUtDLEdBQUwsRUFBVztBQUM3QyxNQUFJQyxRQUFNRixJQUFJRyxJQUFKLENBQVNELEtBQW5CO0FBQUEsTUFDSUUsWUFBWUMsS0FBS0MsR0FBTCxFQURoQjtBQUVBLE1BQUlDLGVBQWUsaUNBQWtCLEVBQUVMLFlBQUYsRUFBU0Usb0JBQVQsRUFBbEIsQ0FBbkI7QUFDQUcsZUFBYUMsSUFBYjs7QUFFRFYsVUFBUTtBQUNMVyxTQUFJLGFBQVdmLElBQVgsR0FBZ0JDLElBQWhCLEdBQXFCLEtBQXJCLEdBQTZCZSxtQkFBbUJSLEtBQW5CLENBRDVCO0FBRUxTLGFBQVEsRUFBQyw2QkFBOEJyQixHQUEvQjtBQUZILEdBQVIsRUFHRyxVQUFTc0IsR0FBVCxFQUFhQyxRQUFiLEVBQXNCVixJQUF0QixFQUEyQjtBQUMzQixRQUFLVyxRQUFPQyxLQUFLQyxLQUFMLENBQVdiLElBQVgsQ0FBWjtBQUNELFFBQUljLFNBQVFILE1BQU1JLEtBQU4sQ0FBWUMsR0FBWixDQUFnQixVQUFDQyxDQUFELEVBQUs7QUFDaEMsYUFBTTtBQUNKLGVBQU1BLEVBQUVDLFlBREo7QUFFSixtQkFBVUQsRUFBRUUsSUFGUjtBQUdKLHFCQUFZRixFQUFFRyxZQUhWO0FBSUosbUJBQVVILEVBQUVJO0FBSlIsT0FBTjtBQU1ELEtBUFksQ0FBWjtBQVFEdkIsUUFBSXdCLElBQUosQ0FBU1IsTUFBVDtBQUNBLEdBZEQ7QUFlQSxDQXJCRDs7QUF1QkE3QixVQUFVc0MsR0FBVixDQUFjLHFCQUFkLEVBQW9DLFVBQUMxQixHQUFELEVBQUtDLEdBQUwsRUFBVztBQUM1QywrQkFDRTBCLElBREYsR0FFRUMsTUFGRixDQUVTLEVBQUVDLEtBQUssQ0FBUCxFQUFVM0IsT0FBTyxDQUFqQixFQUFvQkUsV0FBVyxDQUEvQixFQUZULEVBR0UwQixJQUhGLENBR08sRUFBRTFCLFdBQVcsQ0FBQyxDQUFkLEVBSFAsRUFJRTJCLEtBSkYsQ0FJUSxFQUpSLEVBS0VDLElBTEYsQ0FLTyxtQkFBVztBQUNmL0IsUUFBSWdDLE1BQUosQ0FBVyxHQUFYLEVBQWdCUixJQUFoQixDQUFxQlMsT0FBckI7QUFDRCxHQVBGO0FBUUYsQ0FURCIsImZpbGUiOiJzZWFyY2guanMiLCJzb3VyY2VSb290IjoiL2FwcC9zcmMvYXBpIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IGV4cHJlc3MgZnJvbSAnZXhwcmVzcyc7XG5pbXBvcnQgeyBTZWFyY2hIaXN0b3J5IH0gZnJvbSAnLi9zZWFyY2hIaXN0b3J5JztcblxuZXhwb3J0IGNvbnN0IHNlYXJjaEFwaT0gZXhwcmVzcy5Sb3V0ZXIoKTtcblxubGV0IGtleT0gcHJvY2Vzcy5lbnYuQVBJX0tFWTtcbmxldCBob3N0ID0gJ2FwaS5jb2duaXRpdmUubWljcm9zb2Z0LmNvbSc7XG5sZXQgcGF0aCA9ICcvYmluZy92Ny4wL2ltYWdlcy9zZWFyY2gnO1xubGV0IGh0dHBzID0gcmVxdWlyZSgnaHR0cHMnKTtcbnZhciByZXF1ZXN0ID0gcmVxdWlyZSgncmVxdWVzdCcpO1xuXG5zZWFyY2hBcGkucG9zdCgnL2ltYWdlc2VhcmNoL3F1ZXJ5JywocmVxLHJlcyk9PntcbiAgbGV0IHF1ZXJ5PXJlcS5ib2R5LnF1ZXJ5LFxuICAgICAgdGltZXN0YW1wID0gRGF0ZS5ub3coKTsgIFxuICBsZXQgcXVlcnlIaXN0b3J5ID0gbmV3IFNlYXJjaEhpc3RvcnkoeyBxdWVyeSwgdGltZXN0YW1wIH0pOyBcbiAgcXVlcnlIaXN0b3J5LnNhdmUoKTtcbiAgXG4gcmVxdWVzdCh7XG4gICAgdXJsOidodHRwczovLycraG9zdCtwYXRoKyc/cT0nICsgZW5jb2RlVVJJQ29tcG9uZW50KHF1ZXJ5KSxcbiAgICBoZWFkZXJzOnsnT2NwLUFwaW0tU3Vic2NyaXB0aW9uLUtleScgOiBrZXl9XG4gIH0sZnVuY3Rpb24oZXJyLHJlc3BvbnNlLGJvZHkpe1xuICAgIGxldCAgbXlvYmo9IEpTT04ucGFyc2UoYm9keSk7XG4gICBsZXQgcmVzdWx0PSBteW9iai52YWx1ZS5tYXAoKGQpPT57XG4gICAgcmV0dXJue1xuICAgICAgJ3VybCc6ZC53ZWJTZWFyY2hVcmwsXG4gICAgICAnc25pcHBldCc6ZC5uYW1lLFxuICAgICAgJ3RodW1ibmFpbCc6ZC50aHVtYm5haWxVcmwsXG4gICAgICAnY29udGV4dCc6ZC5jb250ZW50VXJsXG4gICAgfVxuICB9KTtcbiAgcmVzLmpzb24ocmVzdWx0KTtcbiB9KTtcbn0pO1xuXG5zZWFyY2hBcGkuZ2V0KCcvbGF0ZXN0L2ltYWdlc2VhcmNoJywocmVxLHJlcyk9PntcbiAgIFNlYXJjaEhpc3RvcnlcbiAgICAuZmluZCgpIFxuICAgIC5zZWxlY3QoeyBfaWQ6IDAsIHF1ZXJ5OiAxLCB0aW1lc3RhbXA6IDEgfSkgXG4gICAgLnNvcnQoeyB0aW1lc3RhbXA6IC0xIH0pIFxuICAgIC5saW1pdCgxMCkgXG4gICAgLnRoZW4ocmVzdWx0cyA9PiB7ICBcbiAgICAgIHJlcy5zdGF0dXMoMjAwKS5qc29uKHJlc3VsdHMpO1xuICAgIH0pO1xufSk7Il19",
     "ast": null,
     "map": {
       "version": 3,
@@ -433,44 +462,249 @@
         "path",
         "https",
         "require",
-        "body",
-        "get",
+        "request",
+        "post",
         "req",
         "res",
         "query",
-        "params",
-        "setHeader",
-        "redirect",
+        "body",
+        "timestamp",
+        "Date",
+        "now",
+        "queryHistory",
+        "save",
+        "url",
         "encodeURIComponent",
-        "response_handler",
-        "response",
-        "on",
-        "d",
-        "console",
-        "log",
-        "header",
         "headers",
-        "startsWith",
+        "err",
+        "response",
+        "myobj",
         "JSON",
-        "stringify",
         "parse",
-        "e",
-        "message",
-        "bing_web_search",
-        "search",
-        "request_params",
-        "method",
-        "hostname",
-        "request",
-        "end"
+        "result",
+        "value",
+        "map",
+        "d",
+        "webSearchUrl",
+        "name",
+        "thumbnailUrl",
+        "contentUrl",
+        "json",
+        "get",
+        "find",
+        "select",
+        "_id",
+        "sort",
+        "limit",
+        "then",
+        "status",
+        "results"
       ],
-      "mappings": ";;;;;;;AAAA;;;;;;AAEO,IAAMA,gCAAW,kBAAQC,MAAR,EAAjB;AACP,IAAIC,MAAKC,QAAQC,GAAR,CAAYC,OAArB;AACA,IAAIC,OAAO,6BAAX;AACA,IAAIC,OAAO,0BAAX;AACA,IAAIC,QAAQC,QAAQ,OAAR,CAAZ;AACA,IAAIC,OAAO,EAAX;;AAGAV,UAAUW,GAAV,CAAc,qBAAd,EAAoC,UAACC,GAAD,EAAKC,GAAL,EAAW;AAC7C,QAAIC,QAAMF,IAAIG,MAAJ,CAAWD,KAArB;AACAD,QAAIG,SAAJ,CAAc,2BAAd,EAA2Cd,GAA3C;AACIW,QAAII,QAAJ,CAAa,aAAWX,IAAX,GAAgBC,IAAhB,GAAqB,KAArB,GAA6BW,mBAAmBJ,KAAnB,CAA1C;AACH,CAJH;AAKA,IAAIK,mBAAmB,SAAnBA,gBAAmB,CAAUC,QAAV,EAAoB;AACvCA,aAASC,EAAT,CAAY,MAAZ,EAAoB,UAAUC,CAAV,EAAa;AAC7BZ,gBAAQY,CAAR;AACH,KAFD;AAGAF,aAASC,EAAT,CAAY,KAAZ,EAAmB,YAAY;AAC3BE,gBAAQC,GAAR,CAAY,uBAAZ;AACA,aAAK,IAAIC,MAAT,IAAmBL,SAASM,OAA5B;AACI;AACA,gBAAID,OAAOE,UAAP,CAAkB,WAAlB,KAAkCF,OAAOE,UAAP,CAAkB,WAAlB,CAAtC,EACHjB,OAAOkB,KAAKC,SAAL,CAAeD,KAAKE,KAAL,CAAWpB,IAAX,CAAf,EAAiC,IAAjC,EAAuC,IAAvC,CAAP;AAHD;AAIP,KANG;AAOAU,aAASC,EAAT,CAAY,OAAZ,EAAqB,UAAUU,CAAV,EAAa;AAC9BR,gBAAQC,GAAR,CAAY,YAAYO,EAAEC,OAA1B;AACH,KAFD;AAGH,CAdD;AAeA,IAAIC,kBAAkB,SAAlBA,eAAkB,CAAUC,MAAV,EAAkB;AACtCX,YAAQC,GAAR,CAAY,4BAA4BU,MAAxC;AACA,QAAIC,iBAAiB;AACfC,gBAAS,KADM;AAEfC,kBAAW/B,IAFI;AAGfC,cAAOA,OAAO,KAAP,GAAeW,mBAAmBgB,MAAnB,CAHP;AAIfR,iBAAU;AACN,yCAA8BxB;AADxB;AAJK,KAArB;;AASE,QAAIU,MAAMJ,MAAM8B,OAAN,CAAcH,cAAd,EAA8BhB,gBAA9B,CAAV;AACAP,QAAI2B,GAAJ;AACH,CAbD;AAcAvC,UAAUW,GAAV,CAAc,yBAAd,EAAwC,UAACC,GAAD,EAAKC,GAAL,EAAW,CAElD,CAFD",
+      "mappings": ";;;;;;;AAAA;;;;AACA;;;;AAEO,IAAMA,gCAAW,kBAAQC,MAAR,EAAjB;;AAEP,IAAIC,MAAKC,QAAQC,GAAR,CAAYC,OAArB;AACA,IAAIC,OAAO,6BAAX;AACA,IAAIC,OAAO,0BAAX;AACA,IAAIC,QAAQC,QAAQ,OAAR,CAAZ;AACA,IAAIC,UAAUD,QAAQ,SAAR,CAAd;;AAEAT,UAAUW,IAAV,CAAe,oBAAf,EAAoC,UAACC,GAAD,EAAKC,GAAL,EAAW;AAC7C,MAAIC,QAAMF,IAAIG,IAAJ,CAASD,KAAnB;AAAA,MACIE,YAAYC,KAAKC,GAAL,EADhB;AAEA,MAAIC,eAAe,iCAAkB,EAAEL,YAAF,EAASE,oBAAT,EAAlB,CAAnB;AACAG,eAAaC,IAAb;;AAEDV,UAAQ;AACLW,SAAI,aAAWf,IAAX,GAAgBC,IAAhB,GAAqB,KAArB,GAA6Be,mBAAmBR,KAAnB,CAD5B;AAELS,aAAQ,EAAC,6BAA8BrB,GAA/B;AAFH,GAAR,EAGG,UAASsB,GAAT,EAAaC,QAAb,EAAsBV,IAAtB,EAA2B;AAC3B,QAAKW,QAAOC,KAAKC,KAAL,CAAWb,IAAX,CAAZ;AACD,QAAIc,SAAQH,MAAMI,KAAN,CAAYC,GAAZ,CAAgB,UAACC,CAAD,EAAK;AAChC,aAAM;AACJ,eAAMA,EAAEC,YADJ;AAEJ,mBAAUD,EAAEE,IAFR;AAGJ,qBAAYF,EAAEG,YAHV;AAIJ,mBAAUH,EAAEI;AAJR,OAAN;AAMD,KAPY,CAAZ;AAQDvB,QAAIwB,IAAJ,CAASR,MAAT;AACA,GAdD;AAeA,CArBD;;AAuBA7B,UAAUsC,GAAV,CAAc,qBAAd,EAAoC,UAAC1B,GAAD,EAAKC,GAAL,EAAW;AAC5C,+BACE0B,IADF,GAEEC,MAFF,CAES,EAAEC,KAAK,CAAP,EAAU3B,OAAO,CAAjB,EAAoBE,WAAW,CAA/B,EAFT,EAGE0B,IAHF,CAGO,EAAE1B,WAAW,CAAC,CAAd,EAHP,EAIE2B,KAJF,CAIQ,EAJR,EAKEC,IALF,CAKO,mBAAW;AACf/B,QAAIgC,MAAJ,CAAW,GAAX,EAAgBR,IAAhB,CAAqBS,OAArB;AACD,GAPF;AAQF,CATD",
       "file": "search.js",
       "sourceRoot": "/app/src/api",
       "sourcesContent": [
-        "import express from 'express';\n\nexport const searchApi= express.Router();\nlet key= process.env.API_KEY;\nlet host = 'api.cognitive.microsoft.com';\nlet path = '/bing/v7.0/images/search';\nlet https = require('https');\nlet body = '';\n\n\nsearchApi.get('/imagesearch/:query',(req,res)=>{\n  let query=req.params.query;\n  res.setHeader('Ocp-Apim-Subscription-Key' ,key);\n      res.redirect('https://'+host+path+'?q=' + encodeURIComponent(query)); \n  });\nlet response_handler = function (response) {\n    response.on('data', function (d) {\n        body += d;\n    });\n    response.on('end', function () {\n        console.log('\\nRelevant Headers:\\n');\n        for (var header in response.headers)\n            // header keys are lower-cased by Node.js\n            if (header.startsWith(\"bingapis-\") || header.startsWith(\"x-msedge-\"))\n         body = JSON.stringify(JSON.parse(body), null, '  ');\n});\n    response.on('error', function (e) {\n        console.log('Error: ' + e.message);\n    });\n};\nlet bing_web_search = function (search) {\n  console.log('Searching the Web for: ' + search);\n  let request_params = {\n        method : 'GET',\n        hostname : host,\n        path : path + '?q=' + encodeURIComponent(search),\n        headers : {\n            'Ocp-Apim-Subscription-Key' : key,\n        }\n    };\n\n    let req = https.request(request_params, response_handler);\n    req.end();\n}\nsearchApi.get('/api/latest/imagesearch',(req,res)=>{\n  \n});"
+        "import express from 'express';\nimport { SearchHistory } from './searchHistory';\n\nexport const searchApi= express.Router();\n\nlet key= process.env.API_KEY;\nlet host = 'api.cognitive.microsoft.com';\nlet path = '/bing/v7.0/images/search';\nlet https = require('https');\nvar request = require('request');\n\nsearchApi.post('/imagesearch/query',(req,res)=>{\n  let query=req.body.query,\n      timestamp = Date.now();  \n  let queryHistory = new SearchHistory({ query, timestamp }); \n  queryHistory.save();\n  \n request({\n    url:'https://'+host+path+'?q=' + encodeURIComponent(query),\n    headers:{'Ocp-Apim-Subscription-Key' : key}\n  },function(err,response,body){\n    let  myobj= JSON.parse(body);\n   let result= myobj.value.map((d)=>{\n    return{\n      'url':d.webSearchUrl,\n      'snippet':d.name,\n      'thumbnail':d.thumbnailUrl,\n      'context':d.contentUrl\n    }\n  });\n  res.json(result);\n });\n});\n\nsearchApi.get('/latest/imagesearch',(req,res)=>{\n   SearchHistory\n    .find() \n    .select({ _id: 0, query: 1, timestamp: 1 }) \n    .sort({ timestamp: -1 }) \n    .limit(10) \n    .then(results => {  \n      res.status(200).json(results);\n    });\n});"
       ]
     },
-    "mtime": 1509104997412
+    "mtime": 1509116629195
+  },
+  "{\"filename\":\"/app/src/api/searchHistory.js\",\"env\":{},\"retainLines\":false,\"highlightCode\":true,\"suppressDeprecationMessages\":false,\"presets\":[],\"plugins\":[[[],{\"loose\":false,\"spec\":false}],[[],null],[[],null],[[],{\"spec\":false}],[[],null],[[],{\"loose\":false}],[[],null],[[],null],[[],null],[[],{\"loose\":false}],[[],{\"loose\":false}],[[],null],[[],null],[[],null],[[],{\"loose\":false}],[[],null],[[],{\"loose\":false}],[[],null],[[],null],[[],{\"loose\":false}],[[],{\"async\":false,\"asyncGenerators\":false}]],\"ignore\":[],\"code\":true,\"metadata\":true,\"ast\":true,\"comments\":true,\"compact\":\"auto\",\"minified\":false,\"sourceRoot\":\"/app/src/api\",\"babelrc\":true,\"sourceType\":\"module\",\"moduleIds\":false,\"passPerPreset\":false,\"parserOpts\":false,\"generatorOpts\":false}:6.26.0": {
+    "metadata": {
+      "usedHelpers": [
+        "interopRequireDefault"
+      ],
+      "marked": [],
+      "modules": {
+        "imports": [
+          {
+            "source": "mongoose",
+            "imported": [
+              "default"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "default",
+                "local": "mongoose"
+              }
+            ]
+          }
+        ],
+        "exports": {
+          "exported": [
+            "SearchHistory"
+          ],
+          "specifiers": [
+            {
+              "kind": "local",
+              "local": "SearchHistory",
+              "exported": "SearchHistory"
+            }
+          ]
+        }
+      }
+    },
+    "options": {
+      "filename": "/app/src/api/searchHistory.js",
+      "filenameRelative": "/app/src/api/searchHistory.js",
+      "env": {},
+      "retainLines": false,
+      "highlightCode": true,
+      "suppressDeprecationMessages": false,
+      "presets": [],
+      "plugins": [
+        [
+          [],
+          {
+            "loose": false,
+            "spec": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "spec": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "async": false,
+            "asyncGenerators": false
+          }
+        ]
+      ],
+      "ignore": [],
+      "code": true,
+      "metadata": true,
+      "ast": false,
+      "comments": true,
+      "compact": "auto",
+      "minified": false,
+      "sourceMaps": "both",
+      "sourceMapTarget": "searchHistory.js",
+      "sourceFileName": "searchHistory.js",
+      "sourceRoot": "/app/src/api",
+      "babelrc": false,
+      "sourceType": "module",
+      "moduleRoot": "/app/src/api",
+      "moduleIds": false,
+      "passPerPreset": false,
+      "parserOpts": false,
+      "generatorOpts": false,
+      "basename": "searchHistory"
+    },
+    "ignored": false,
+    "code": "'use strict';\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.SearchHistory = undefined;\n\nvar _mongoose = require('mongoose');\n\nvar _mongoose2 = _interopRequireDefault(_mongoose);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar searchHistorySchema = _mongoose2.default.Schema({\n  timestamp: Number,\n  query: String\n});\nsearchHistorySchema.index({ timestamp: 1 });\n\nvar SearchHistory = exports.SearchHistory = _mongoose2.default.model('SearchHistory', searchHistorySchema);\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNlYXJjaEhpc3RvcnkuanMiXSwibmFtZXMiOlsic2VhcmNoSGlzdG9yeVNjaGVtYSIsIlNjaGVtYSIsInRpbWVzdGFtcCIsIk51bWJlciIsInF1ZXJ5IiwiU3RyaW5nIiwiaW5kZXgiLCJTZWFyY2hIaXN0b3J5IiwibW9kZWwiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7QUFBQTs7Ozs7O0FBRUEsSUFBSUEsc0JBQXNCLG1CQUFTQyxNQUFULENBQWdCO0FBQ3hDQyxhQUFXQyxNQUQ2QjtBQUV4Q0MsU0FBT0M7QUFGaUMsQ0FBaEIsQ0FBMUI7QUFJQUwsb0JBQW9CTSxLQUFwQixDQUEwQixFQUFFSixXQUFXLENBQWIsRUFBMUI7O0FBRU8sSUFBSUssd0NBQWdCLG1CQUFTQyxLQUFULENBQWUsZUFBZixFQUFnQ1IsbUJBQWhDLENBQXBCIiwiZmlsZSI6InNlYXJjaEhpc3RvcnkuanMiLCJzb3VyY2VSb290IjoiL2FwcC9zcmMvYXBpIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IG1vbmdvb3NlIGZyb20gJ21vbmdvb3NlJztcblxudmFyIHNlYXJjaEhpc3RvcnlTY2hlbWEgPSBtb25nb29zZS5TY2hlbWEoe1xuICB0aW1lc3RhbXA6IE51bWJlcixcbiAgcXVlcnk6IFN0cmluZ1xufSk7XG5zZWFyY2hIaXN0b3J5U2NoZW1hLmluZGV4KHsgdGltZXN0YW1wOiAxIH0pO1xuIFxuZXhwb3J0IHZhciBTZWFyY2hIaXN0b3J5ID0gbW9uZ29vc2UubW9kZWwoJ1NlYXJjaEhpc3RvcnknLCBzZWFyY2hIaXN0b3J5U2NoZW1hKTsiXX0=",
+    "ast": null,
+    "map": {
+      "version": 3,
+      "sources": [
+        "searchHistory.js"
+      ],
+      "names": [
+        "searchHistorySchema",
+        "Schema",
+        "timestamp",
+        "Number",
+        "query",
+        "String",
+        "index",
+        "SearchHistory",
+        "model"
+      ],
+      "mappings": ";;;;;;;AAAA;;;;;;AAEA,IAAIA,sBAAsB,mBAASC,MAAT,CAAgB;AACxCC,aAAWC,MAD6B;AAExCC,SAAOC;AAFiC,CAAhB,CAA1B;AAIAL,oBAAoBM,KAApB,CAA0B,EAAEJ,WAAW,CAAb,EAA1B;;AAEO,IAAIK,wCAAgB,mBAASC,KAAT,CAAe,eAAf,EAAgCR,mBAAhC,CAApB",
+      "file": "searchHistory.js",
+      "sourceRoot": "/app/src/api",
+      "sourcesContent": [
+        "import mongoose from 'mongoose';\n\nvar searchHistorySchema = mongoose.Schema({\n  timestamp: Number,\n  query: String\n});\nsearchHistorySchema.index({ timestamp: 1 });\n \nexport var SearchHistory = mongoose.model('SearchHistory', searchHistorySchema);"
+      ]
+    },
+    "mtime": 1509116557243
   }
 }
